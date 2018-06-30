@@ -1,0 +1,35 @@
+<% include ../partials/header.ejs %>
+
+<div class = "container">
+    <header class = "jumbotron">
+        <div class = "container">
+            <h1>Let us GetAway</h1>
+            <p>View our awesome locations from all over the universe</p>
+            <p>
+                <a class = "btn btn-primary btn-lg" href = "/getaways/new">Add new Location for a getaway</a>
+            </p>
+        </div>
+</header>
+
+
+    <div class = "row text-center" style = "display:flex;flex-wrap:wrap;">
+        <div class = "col-lg-12">
+            <h3>Check out the places</h3>
+        </div>
+        <% getaways.forEach(function(getaway){ %>
+        <div class = "col-md-3 col-sm-6">
+            <div class = "thumbnail">
+                <img src = "<%= getaway.image %>">
+                <div class = "caption">
+                    <%= getaway.name %>
+                </div>
+                <p>
+                    <a href = "/getaways/<%= getaway._id %>" class = "btn btn-primary"> More Info </a>
+                </p>
+            </div>
+        </div>
+        <% }); %>
+    </div>
+</div>
+
+<% include ../partials/footer.ejs %>
